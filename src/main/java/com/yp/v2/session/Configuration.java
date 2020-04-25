@@ -6,8 +6,8 @@ import com.yp.v2.binding.MapperRegister;
 import com.yp.v2.executor.CachingExecutor;
 import com.yp.v2.executor.SimpleExecutor;
 import com.yp.v2.executor.Executor;
-import com.yp.v2.interceptor.Interceptor;
-import com.yp.v2.interceptor.InterceptorChain;
+import com.yp.v2.plugin.Interceptor;
+import com.yp.v2.plugin.InterceptorChain;
 
 import java.io.File;
 import java.lang.annotation.Annotation;
@@ -30,7 +30,7 @@ public class Configuration {
 
     static {
         sqlMappings = ResourceBundle.getBundle("sql");
-        properties = ResourceBundle.getBundle("mybatis");
+        properties = ResourceBundle.getBundle("mebatis");
     }
 
     /**
