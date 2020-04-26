@@ -8,6 +8,7 @@ import com.yp.v2.executor.SimpleExecutor;
 import com.yp.v2.executor.Executor;
 import com.yp.v2.plugin.Interceptor;
 import com.yp.v2.plugin.InterceptorChain;
+import org.apache.commons.lang3.StringUtils;
 
 import java.io.File;
 import java.lang.annotation.Annotation;
@@ -67,9 +68,12 @@ public class Configuration {
         // 3.解析插件，可配置多个插件
         String pluginPathValue = properties.getString("plugin.path");
         String[] pluginPaths = pluginPathValue.split(",");
-        if (null != pluginPaths) {
+        if (null != pluginPaths && pluginPaths.length > 0) {
             // 将插件添加到interceptorChain中
             for (String plugin : pluginPaths) {
+                if (StringUtils.isBlank(plugin)) {
+                    continue;
+                }
                 Interceptor interceptor = null;
                 try {
                     interceptor = (Interceptor) Class.forName(plugin).newInstance();

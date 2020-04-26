@@ -47,7 +47,7 @@ public class Invocation {
         this.args = args;
     }
 
-    public Object proceed() throws InvocationTargetException, IllegalAccessException {
+    public Object proceed(Object target, Object[] args) throws InvocationTargetException, IllegalAccessException {
         return method.invoke(target, args);
     }
 }

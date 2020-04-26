@@ -20,7 +20,7 @@ public class MyPlugin implements Interceptor {
         Class pojo = (Class) invocation.getArgs()[2];
         System.out.println("插件输出：SQL：[" + statement + "]");
         System.out.println("插件输出：Parameters：" + Arrays.toString(parameter));
-        return invocation.proceed();
+        return invocation.proceed(pojo, parameter);
     }
 
     @Override
